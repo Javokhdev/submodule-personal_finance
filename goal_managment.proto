@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+package goal_management;
+
+service GoalService {
+    rpc CreateGoal (CreateGoalRequest) returns (Response);
+    rpc LeistGoals (ListGoalsRequest) returns (ListGoalsResponse);
+    rpc GetGoalById (GetGoalByIdRequest) returns (GoalResponse);
+    rpc UpdateGoal (UpdateGoalRequest) returns (Response);
+    rpc DeleteGoal (DeleteGoalRequest) returns (DeleteResponse);
+}
+
+message Response {
+    string Message = 1;
+}
+
+message CreateGoalRequest {
+    string id = 1;
+    string user_id = 2;
+    double target_amount = 3;
+    double current_amount = 4;
+    string deadline = 5;
+    string status = 6;
+}
+
+message ListGoalsRequest {}
+
+message GetGoalByIdRequest {
+    string goal_id = 1;
+}
+
+message UpdateGoalRequest {
+    string goal_id = 1;
+    string user_id = 2;
+    double target_amount = 3;
+    double courent_amount = 4;
+    string deadline = 5;
+}
+
+message DeleteGoalRequest {
+    string goal_id = 1;
+}
+
+message GoalResponse {
+    string goal_id = 1;
+    string user_id = 2;
+    double target_amount = 3;
+    double current_amount = 4;
+    string deadline = 5;
+}
+
+message ListGoalsResponse {
+    repeated GoalResponse goals = 1;
+}
+
+message DeleteResponse {
+    bool success = 1;
+}
