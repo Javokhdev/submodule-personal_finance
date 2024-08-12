@@ -1,18 +1,18 @@
 syntax = "proto3";
 
 package budget;
-option go_package = "genproto";
+option go_package = "genproto/";
 
 
 service GoalService {
-    rpc CreateGoal (CreateGoalRequest) returns (Response);
-    rpc LeistGoals (ListGoalsRequest) returns (ListGoalsResponse);
+    rpc CreateGoal (CreateGoalRequest) returns (Responsee);
+    rpc ListGoals (ListGoalsRequest) returns (ListGoalsResponse);
     rpc GetGoalById (GetGoalByIdRequest) returns (GoalResponse);
-    rpc UpdateGoal (UpdateGoalRequest) returns (Response);
-    rpc DeleteGoal (DeleteGoalRequest) returns (DeleteResponse);
+    rpc UpdateGoal (UpdateGoalRequest) returns (Responsee);
+    rpc DeleteGoal (DeleteGoalRequest) returns (GoalDeleteResponse);
 }
 
-message Response {
+message Responsee {
     string Message = 1;
 }
 
@@ -55,6 +55,6 @@ message ListGoalsResponse {
     repeated GoalResponse goals = 1;
 }
 
-message DeleteResponse {
+message GoalDeleteResponse {
     bool success = 1;
 }

@@ -1,18 +1,18 @@
 syntax = "proto3";
 
 package budget;
-option go_package = "genproto";
+option go_package = "genproto/";
 
 
 service TransactionService {
-    rpc CreateTransaction (CreateTransactionRequest) returns (Response);
+    rpc CreateTransaction (CreateTransactionRequest) returns (response);
     rpc GetTransactions (GetTransactionsRequest) returns (TransactionsResponse);
     rpc GetTransactionById (GetTransactionByIdRequest) returns (TransactionResponse);
-    rpc UpdateTransaction (UpdateTransactionRequest) returns (Response);
-    rpc DeleteTransaction (DeleteTransactionRequest) returns (DeleteResponse);
+    rpc UpdateTransaction (UpdateTransactionRequest) returns (response);
+    rpc DeleteTransaction (DeleteTransactionRequest) returns (TransactionDeleteResponse);
 }
 
-message Response {
+message response {
     string message = 1;
 }
 
@@ -63,6 +63,6 @@ message TransactionsResponse {
     repeated TransactionResponse transactions = 1;
 }
 
-message DeleteResponse {
+message TransactionDeleteResponse {
     bool success = 1;
 }

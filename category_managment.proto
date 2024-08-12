@@ -1,15 +1,15 @@
 syntax = "proto3";
 
 package budget;
-option go_package = "genproto";
+option go_package = "genproto/";
 
 
 service CategoryService {
-    rpc CreateCategory (CreateCategoryRequest) returns (Response);
+    rpc CreateCategory (CreateCategoryRequest) returns (MessageResponse);
     rpc ListCategories (ListCategoriesRequest) returns (ListResponse);
     rpc GetCategoryById (GetCategoryByIdRequest) returns (CategoryResponse);
-    rpc UpdateCategory (UpdateCategoryRequest) returns (Response);
-    rpc DeleteCategory (DeleteCategoryRequest) returns (DeleteResponse);
+    rpc UpdateCategory (UpdateCategoryRequest) returns (MessageResponse);
+    rpc DeleteCategory (DeleteCategoryRequest) returns (CategoryDeleteResponse);
 }
 
 message CreateCategoryRequest {
@@ -19,7 +19,7 @@ message CreateCategoryRequest {
     string type = 4;
 }
 
-message Response {
+message MessageResponse {
     string Message = 1;
 }
 
@@ -51,6 +51,6 @@ message ListResponse {
     repeated CategoryResponse categories = 1;
 }
 
-message DeleteResponse {
+message CategoryDeleteResponse {
     bool success = 1;
 }
