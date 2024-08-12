@@ -1,6 +1,8 @@
 syntax = "proto3";
 
-package category_management;
+package budget;
+option go_package = "genproto";
+
 
 service CategoryService {
     rpc CreateCategory (CreateCategoryRequest) returns (Response);

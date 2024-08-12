@@ -1,6 +1,8 @@
 syntax = "proto3";
 
-package goal_management;
+package budget;
+option go_package = "genproto";
+
 
 service GoalService {
     rpc CreateGoal (CreateGoalRequest) returns (Response);

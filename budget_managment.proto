@@ -1,6 +1,8 @@
 syntax = "proto3";
 
-package budget_management;
+package budget;
+option go_package = "genproto";
+
 
 service BudgetService {
     rpc CreateBudget (CreateBudgetRequest) returns (Response);

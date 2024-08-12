@@ -1,6 +1,8 @@
 syntax = "proto3";
 
-package transaction_management;
+package budget;
+option go_package = "genproto";
+
 
 service TransactionService {
     rpc CreateTransaction (CreateTransactionRequest) returns (Response);

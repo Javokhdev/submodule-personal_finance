@@ -1,6 +1,8 @@
 syntax = "proto3";
 
-package notification_management;
+package budget;
+option go_package = "genproto";
+
 
 service NotificationService {
     rpc GetNotifications (GetNotificationsRequest) returns (NotificationsResponse);
