@@ -23,7 +23,12 @@ message MessageResponse {
     string Message = 1;
 }
 
-message ListCategoriesRequest {}
+message ListCategoriesRequest {
+    string category_id = 1;
+    string user_id = 2;
+    string name = 3;
+    string type = 4;
+}
 
 message GetCategoryByIdRequest {
     string category_id = 1;

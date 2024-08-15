@@ -24,7 +24,14 @@ message CreateAccountRes {
     string Message = 1;
 }
 
-message ListAccountsRequest {}
+message ListAccountsRequest {
+    string account_id = 1;
+    string user_id = 2;
+    string account_name = 3;
+    string account_type = 4;
+    double balance = 5;
+    string currency = 6;
+}
 
 message GetAccountByIdRequest {
     string account_id = 1;

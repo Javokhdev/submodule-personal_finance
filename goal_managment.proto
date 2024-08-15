@@ -19,13 +19,22 @@ message Responsee {
 message CreateGoalRequest {
     string id = 1;
     string user_id = 2;
-    double target_amount = 3;
-    double current_amount = 4;
-    string deadline = 5;
-    string status = 6;
+    string name = 3;
+    float target_amount = 4;
+    float current_amount = 5;
+    string deadline = 6;
+    string status = 7; 
 }
 
-message ListGoalsRequest {}
+message ListGoalsRequest {
+    string id = 1;
+    string user_id = 2;
+    string name = 3;
+    float target_amount = 4;
+    float current_amount = 5;
+    string deadline = 6;
+    string status = 7; 
+}
 
 message GetGoalByIdRequest {
     string goal_id = 1;
@@ -33,10 +42,11 @@ message GetGoalByIdRequest {
 
 message UpdateGoalRequest {
     string goal_id = 1;
-    string user_id = 2;
-    double target_amount = 3;
-    double courent_amount = 4;
-    string deadline = 5;
+    string name = 3;
+    float target_amount = 4;
+    float current_amount = 5;
+    string deadline = 6;
+    string status = 7; 
 }
 
 message DeleteGoalRequest {
@@ -45,10 +55,11 @@ message DeleteGoalRequest {
 
 message GoalResponse {
     string goal_id = 1;
-    string user_id = 2;
-    double target_amount = 3;
-    double current_amount = 4;
-    string deadline = 5;
+    string name = 3;
+    float target_amount = 4;
+    float current_amount = 5;
+    string deadline = 6;
+    string status = 7; 
 }
 
 message ListGoalsResponse {
@@ -58,3 +69,19 @@ message ListGoalsResponse {
 message GoalDeleteResponse {
     bool success = 1;
 }
+
+
+message GoalReportRequest{
+    string id = 1;
+}
+
+message GoalReportResponse{
+    string user_id = 1;
+    string name = 2;
+    float target_amount = 3;
+    float current_amount = 4;
+    float remain_amount = 5;
+    string deadline = 6;
+    string status = 7;
+}
+
